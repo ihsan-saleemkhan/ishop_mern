@@ -1,11 +1,14 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const products = require("./data/products");
+
+dotenv.config();
 
 const app = express();
 
 // Route handler for the root URL
 app.get("/", (req, res) => {
-  res.send("API is running...");
+  res.send("API is running... :)");
 });
 
 // get the products list
@@ -20,6 +23,7 @@ app.get("/api/product/:id", (req, res) => {
 });
 
 // Start the server and listen for incoming requests on port 8000
-app.listen(8000, () => {
-  console.log("Server running on port 8000");
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
