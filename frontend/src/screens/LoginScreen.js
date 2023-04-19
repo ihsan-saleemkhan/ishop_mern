@@ -20,11 +20,14 @@ const LoginScreen = () => {
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
+  const redirectPath = redirect.startsWith("/")
+    ? redirect.substring(1)
+    : redirect;
   useEffect(() => {
     if (userInfo) {
-      navigate(redirect);
+      navigate(`/${redirectPath}`);
     }
-  }, [navigate, userInfo, redirect]);
+  }, [navigate, userInfo, redirectPath]);
 
   const submitHandler = (e) => {
     e.preventDefault();
