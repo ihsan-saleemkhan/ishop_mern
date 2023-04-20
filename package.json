@@ -23,13 +23,15 @@
   },
   "homepage": "https://github.com/ihsan-saleemkhan/ishop_mern#readme",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "bcryptjs": "^2.4.3",
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.3"
+    "mongoose": "^7.0.3",
+    "react-icons": "^4.8.0"
   },
   "devDependencies": {
     "concurrently": "^8.0.1",
