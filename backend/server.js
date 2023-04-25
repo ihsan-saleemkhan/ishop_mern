@@ -1,3 +1,4 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
@@ -7,6 +8,7 @@ import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 
 dotenv.config();
 
@@ -29,6 +31,13 @@ app.use("/api/users", userRoutes);
 
 //Orders routes
 app.use("/api/orders", orderRoutes);
+
+//Upload routes
+app.use("/api/upload", uploadRoutes);
+
+//Make folder static
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 //Paypal routes
 app.use("/api/config/paypal", (req, res) =>
